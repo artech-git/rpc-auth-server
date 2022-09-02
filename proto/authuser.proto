@@ -1,0 +1,65 @@
+
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+package auth.user.authentication;
+
+message userInfo {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+    string device_info = 4;
+    string ph = 5;
+    string countrycode = 6;
+    // bytes image = 7;
+    string file_name = 7;
+}
+
+enum profileOperation {
+    PROFILE_INFO = 0;
+    CART_ITEMS = 1;
+    SETTINGS = 2;
+    WISHLIST = 3;
+    NOTIFICATIONS = 4;
+    ORDERS = 5;
+
+}
+
+message userProfile {
+    string uuid = 1;
+    string token = 2;
+    profileOperation section = 3;
+}
+
+message userSessionDetails {
+    string uid = 1;
+    string session_token = 2;
+}
+
+message UserCredential {
+    string email = 1;
+    string ph = 2;
+    string passwd = 3;
+    string device_id = 4;
+}
+
+message userStatus {
+    string status = 1;
+    string msg = 2;
+}
+
+message userDetails {
+    string status = 1;
+    string msg = 2;
+}
+
+service Authentication {
+    rpc registerUser(userInfo) returns (userStatus) {}
+    
+    rpc loginUser(UserCredential) returns (userSessionDetails) {}
+
+    rpc getUserInfo(userProfile) returns (userDetails) {}
+    
+    // rpc cartItems(userProfile) returns (stream ProductInfo) {}
+}

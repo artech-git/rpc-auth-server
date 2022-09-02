@@ -1,0 +1,22 @@
+
+syntax = "proto3"
+
+
+package user.productinfo;
+
+
+message ProductInfo {
+    string itemname = 1;
+    string quantity = 2;
+    string item_uuid = 3;
+    string current_price = 4;
+    string total_value = 5;
+    string discount = 6;
+    string imagepath = 7;
+    string itemdetail = 8;
+}
+
+message cartItems {
+    uint32 startpage = 8;
+    uint32 endpage = 9;
+}

@@ -1,0 +1,9 @@
+KEY_SIZE = "{{.KEY_SIZE}}"
+TOTP_SIZE = "{{.TOTP_SIZE}}"
+STEP_SIZE = '{{.STEP_SIZE}}'
+auth-table = "{{.AUTH_TABLE}}"
+aws-region-url = "{{.AWS_REGION_URL}}"
+aws-region = "{{.AWS_REGION}}"
+
+db-access-key = "{{.DB_ACESS_KEY}}" 
+db-secret-access-key = "{{.DB_SECRET_ACCESS_KEY}}"
