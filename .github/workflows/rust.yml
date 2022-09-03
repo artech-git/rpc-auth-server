@@ -16,8 +16,7 @@ jobs:
     - name: Install CLI
       uses: dopplerhq/cli-action@v1
     - name: setup doppler secret
-      run: export HISTIGNORE='doppler*'
-      run: echo $DOPPLER_AUTH | doppler configure set token --scope /
+      run: export HISTIGNORE='doppler*'; echo $DOPPLER_AUTH | doppler configure set token --scope /
     - name: inject secrets
       run: doppler secrets substitute settings.toml > settings.toml
     - uses: actions/checkout@v3
