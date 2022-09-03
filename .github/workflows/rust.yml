@@ -8,6 +8,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  DOPPLER_SECRET: $${ secrets.DOPPLER_AUTH }}
   
 jobs:
   build:
@@ -16,7 +17,7 @@ jobs:
     - name: Install CLI
       uses: dopplerhq/cli-action@v1
     - name: setup doppler secret
-      run: export HISTIGNORE='doppler*'; echo $DOPPLER_AUTH | doppler configure set token --scope /
+      run: echo $DOPPLER_SECRET | doppler configure set token --scope /
     - name: inject secrets
       run: doppler secrets substitute settings.toml > settings.toml
     - uses: actions/checkout@v3
